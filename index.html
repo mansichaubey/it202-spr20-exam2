@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = “UTF-8”>
+<meta name= “viewport” content=“width=device-width”>
+
+    <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ 
+    <style>
+                .view{display:none;}
+
+    </style>
+    
+</head>
+    
+    <body>
+        <div class="mdc-card demo-card template" id ="person-card">
+      <div class="mdc-card__primary-action demo-card__primary-action person-card-content" tabindex="0">
+        <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url(&quot;https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg&quot;);"></div>
+        <div class="demo-card__primary">
+          <h3 class="demo-card__subtitle mdc-typography mdc-typography--subtitle2">info</h3>
+        </div>
+      <div class="mdc-card__actions">
+        <div class="mdc-card__action-icons">          
+          <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Get Photo" data-mdc-ripple-is-unbounded="true">person_pin</button>
+        </div>
+      </div>
+    </div>
+        </div>
+        <script>
+            let apiEndpoint="https://randomuser.me/api?reults=6&sex=male&nat=nz,au";
+            fetch(apiEndpoint)
+            .then(response => {return response.json()})
+            .then(json => {
+                men=json['results']
+                for(let data of people){
+                    console.log(data);
+                }
+                
+                let card=document.querySelector("div.mdc-card");
+                let h2=card.querySelector("h2");
+                h2.textContent = json[data][0]["name"]["title"] + " " + json[data][0]["name"]["first"] + " " + json[data][0]["name"]["last"];
+               
+
+        </script>
+    </body>
+</html>
